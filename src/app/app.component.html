@@ -1,20 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div *ngIf="step == 0">
+  <h1>Czas dla dwojga</h1>
+  <h3>Gra dla par - Instrukcja</h3>
 
+    Każda relacja między ludźmi żyje dzięki uważnej rozmowie, a bez niej obumiera. Zarasta chwastami,
+    jak zaniedbany ogród, w którym nie chce się przebywać.
+    Zagłuszona miłość niknie, marnieje, aż niektórzy stwierdzają, że nic ich nie łączy.
+    Aby do tego nie dopuścić, często rozmawiajcie ze sobą.
+    <br>Wskazówki:
+    <ul>
+      <li>Przynajmniej raz w MIESIĄCU usiądźcie spokojnie na pół godziny.</li>
+      <li>Zapalcie świece, jeśli to stworzy dobry nastrój…</li>
+      <li>Uruchomcie grę dla par.</li>
+    </ul>
+    Dopóki jedno z was trzyma MYSZKĘ, drugie mu nie przerywa, tylko słucha.
+    <br><br>
+    <strong>Pamiętajcie:</strong> MAŁŻEŃSTWO/ZWIĄZEK ŻYJE ROZMOWĄ O SPRAWACH GŁĘBSZYCH NIŻ TYLKO BIEŻĄCE SPRAWY DO ZAŁATWIENIA.
+  <br><br>
+  <button class="bt-max" mat-raised-button color="primary" (click)="step = 1">Zaczynamy</button>
+</div>
+
+
+<div *ngIf="step == 1">
+
+  <h1>Czas dla dwojga</h1>
+  <h3>Gra dla par</h3>
+
+  <label id="example-radio-group-label">Losuj ilość pytań:</label>
+
+  <mat-radio-group [(ngModel)]="gameChoise" aria-label="Wybierz ilość pytań:">
+    <mat-radio-button class="radio-group" value=10>10</mat-radio-button>
+    <mat-radio-button class="radio-group" value=20>20</mat-radio-button>
+    <mat-radio-button class="radio-group" value=30>30</mat-radio-button>
+  </mat-radio-group>
+
+  <button class="bt-max" mat-raised-button [disabled]=!gameChoise color="accent" (click)="start()">Start</button>
+  <br><br>
+  <button class="bt-max" mat-raised-button color="primary" (click)="step = 0">Instrukcja</button>
+</div>
+
+<div *ngIf="step == 2">
+  <app-question [dataQuestions]="questRandom"></app-question>
+  <br>
+  <button class="bt-max" mat-raised-button color="accent" (click)="end()">KONIEC</button>
+</div>
