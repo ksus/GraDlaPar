@@ -1,3 +1,31 @@
 .text-question {
-  font-size: 20px;
+  font-size: 30px;
+  font-style: italic;
 }
+
+mat-toolbar {
+  position: sticky;
+  font-weight: 300;
+  position: -webkit-sticky;
+  /* For macOS/iOS Safari */
+  top: 0;
+  /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+  /* height: 55px; */
+  /* border-bottom-color: whitesmoke;
+  border-bottom-width: 1px;
+  border-bottom-style: solid; */
+  }
+
+  .done {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      z-index: 1001;
+  }
+
+
+  mat-progress-bar {
+    margin-top: 10px;
+  }

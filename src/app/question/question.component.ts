@@ -41,8 +41,7 @@ export class QuestionComponent implements OnInit {
   index = 0;
   step = 0;
   flagButton: true;
-
-  state = 'small';
+  state = true;
 
   constructor() { }
 
@@ -50,11 +49,11 @@ export class QuestionComponent implements OnInit {
     this.currentQuestion = this.dataQuestions[this.index];
     this.lengthQuestions = this.dataQuestions.length;
     this.countStep();
-    this.anime();
+    this.toggle();
   }
 
-  anime() {
-    this.state = (this.state === 'small' ? 'large' : 'small');
+  toggle() {
+    this.state = !this.state;
   }
 
   countStep() {
@@ -62,11 +61,9 @@ export class QuestionComponent implements OnInit {
   }
 
   next() {
-    this.anime();
+    this.toggle();
     this.index++;
-    if (this.index >= this.lengthQuestions) {
-      // koniec gry ...
-    } else {
+    if (!(this.index >= this.lengthQuestions)) {
       this.currentQuestion = this.dataQuestions[this.index];
       this.countStep();
       if (this.step >= 100) {

@@ -1,7 +1,10 @@
-<button class="bt-max" mat-raised-button [disabled]=flagButton color="primary" (click)="next()">Losuj kolejne pytanie</button>
-<h2>PYTANIE</h2>
-<div [@anime]='state'>
+<h1>Pytanie</h1>
+<mat-progress-bar mode="determinate" [value]="step"></mat-progress-bar>
+<div [@anime]="state ? 'small' : 'large'">
   <p class="text-question">{{ currentQuestion.text }}</p>
 </div>
 <br>
-<mat-progress-bar mode="determinate" [value]="step"></mat-progress-bar>
+<!-- <button class="bt-max" mat-raised-button [disabled]=flagButton color="primary" (click)="next()">Losuj kolejne
+  pytanie</button> -->
+
+  <span class="done"><button mat-fab color="primary" [disabled]=flagButton (click)="next()"><mat-icon>check</mat-icon></button></span>

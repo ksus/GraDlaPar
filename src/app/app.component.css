@@ -6,3 +6,39 @@
   flex-direction: column;
   margin: 15px 0;
 }
+
+
+mat-toolbar {
+  position: sticky;
+  font-weight: 300;
+  position: -webkit-sticky;
+  /* For macOS/iOS Safari */
+  top: 0;
+  /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+  /* height: 55px; */
+  /* border-bottom-color: whitesmoke;
+  border-bottom-width: 1px;
+  border-bottom-style: solid; */
+  }
+
+.done {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    z-index: 1001;
+}
+
+.done2, .done3 {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    color: white;
+    z-index: 1001;
+}
+
+.done3 {
+  left: 20px;
+  bottom: 20px;
+}

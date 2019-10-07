@@ -1,45 +1,53 @@
 <div *ngIf="step == 0">
   <h1>Czas dla dwojga</h1>
   <h3>Gra dla par - Instrukcja</h3>
-
+  <p>
     Każda relacja między ludźmi żyje dzięki uważnej rozmowie, a bez niej obumiera. Zarasta chwastami,
     jak zaniedbany ogród, w którym nie chce się przebywać.
     Zagłuszona miłość niknie, marnieje, aż niektórzy stwierdzają, że nic ich nie łączy.
     Aby do tego nie dopuścić, często rozmawiajcie ze sobą.
-    <br>Wskazówki:
-    <ul>
-      <li>Przynajmniej raz w MIESIĄCU usiądźcie spokojnie na pół godziny.</li>
-      <li>Zapalcie świece, jeśli to stworzy dobry nastrój…</li>
-      <li>Uruchomcie grę dla par.</li>
-    </ul>
+  </p>
+  <h3>Wskazówki:</h3>
+  <ul>
+    <li>Przynajmniej raz w MIESIĄCU usiądźcie spokojnie na pół godziny.</li>
+    <li>Zapalcie świece, jeśli to stworzy dobry nastrój…</li>
+    <li>Uruchomcie grę dla par.</li>
+  </ul>
+  <!-- <p>
     Dopóki jedno z was trzyma MYSZKĘ, drugie mu nie przerywa, tylko słucha.
-    <br><br>
-    <strong>Pamiętajcie:</strong> MAŁŻEŃSTWO/ZWIĄZEK ŻYJE ROZMOWĄ O SPRAWACH GŁĘBSZYCH NIŻ TYLKO BIEŻĄCE SPRAWY DO ZAŁATWIENIA.
-  <br><br>
-  <button class="bt-max" mat-raised-button color="primary" (click)="step = 1">Zaczynamy</button>
+  </p> -->
+  <h3>Pamiętajcie:</h3>
+  <p>Małżeństwo/związek żyje rozmową o sprawach głębszych niż tylko bieżące sprawy do załatwienia.</p>
+  <br>
+  <!-- <button class="bt-max" mat-raised-button color="primary" (click)="step = 1">Zaczynamy</button> -->
+  <span class="done"><button mat-fab color="primary" (click)="step = 1"><mat-icon>check</mat-icon></button></span>
 </div>
 
 
 <div *ngIf="step == 1">
 
   <h1>Czas dla dwojga</h1>
-  <h3>Gra dla par</h3>
-
-  <label id="example-radio-group-label">Losuj ilość pytań:</label>
-
+  <h3>Losuj ilość pytań:</h3>
+  <br>
   <mat-radio-group [(ngModel)]="gameChoise" aria-label="Wybierz ilość pytań:">
     <mat-radio-button class="radio-group" value=10>10</mat-radio-button>
     <mat-radio-button class="radio-group" value=20>20</mat-radio-button>
     <mat-radio-button class="radio-group" value=30>30</mat-radio-button>
   </mat-radio-group>
 
-  <button class="bt-max" mat-raised-button [disabled]=!gameChoise color="accent" (click)="start()">Start</button>
+  <!-- <button class="bt-max" mat-raised-button [disabled]=!gameChoise color="accent" (click)="start()">Start</button> -->
   <br><br>
-  <button class="bt-max" mat-raised-button color="primary" (click)="step = 0">Instrukcja</button>
+  <!-- <button class="bt-max" mat-raised-button color="primary" (click)="step = 0">Instrukcja</button> -->
+  <span class="done"><button mat-fab color="accent" [disabled]=!gameChoise (click)="start()"><mat-icon>check</mat-icon></button></span>
+  <span class="done2"><button mat-fab color="primary" (click)="step = 0"><mat-icon>receipt</mat-icon></button></span>
 </div>
 
 <div *ngIf="step == 2">
+  <!-- <button class="bt-max" mat-raised-button color="accent" (click)="end()">KONIEC</button> -->
+  <span class="done3"><button mat-fab color="accent" (click)="end()"><mat-icon>stop</mat-icon></button></span>
   <app-question [dataQuestions]="questRandom"></app-question>
   <br>
-  <button class="bt-max" mat-raised-button color="accent" (click)="end()">KONIEC</button>
 </div>
+
+
+

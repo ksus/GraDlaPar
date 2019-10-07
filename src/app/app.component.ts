@@ -15,7 +15,7 @@ export class AppComponent {
 
   questRandom: Question[];
   gameChoise = 0;
-  step = 0;
+  step = 1;
 
   start() {
     this.step = 2;

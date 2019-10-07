@@ -1,7 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { max-width: 900px; margin: 20px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  max-width: 900px;
+  margin: 20px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: linen
+}
+
+h1 {
+  font-family: Lobster;
+  color: chocolate;
+  font-size: 45px;
+  margin: 0;
+}
+
+p, ul{
+  font-family: "Playfair Display";
+  font-size: 18px;
+  /* font-weight: 300; */
+}
+
+h3 {
+  font-family: Lobster;
+  color: brown;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
 
 
 .bt-max {
