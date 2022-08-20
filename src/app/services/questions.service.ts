@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Question } from './question';
+import { Question } from '../models/question';
 
 @Injectable({
   providedIn: 'root'
@@ -119,9 +119,10 @@ export class QuestionsService {
     },
   ];
 
+  // ------------------------------------------------------------------
+  // random questions
+  // ------------------------------------------------------------------
   getData(arg: number): Question[] {
-
-    // LOSOWANIE PYTAŃ
 
     const randomData: Question[] = [];
 
@@ -131,8 +132,7 @@ export class QuestionsService {
         randomData.push(this.data[r]);
       }
     }
-
     return randomData;
   }
-
+  // ------------------------------------------------------------------
 }

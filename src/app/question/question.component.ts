@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, AfterContentChecked, AfterViewInit, AfterViewChecked } from '@angular/core';
-import { Question } from '../question';
+import { Question } from '../models/question';
 import {
   trigger,
   state,
@@ -36,6 +36,7 @@ export class QuestionComponent implements OnInit {
   @Input()
   dataQuestions: Question[];
 
+  // variables
   currentQuestion: Question;
   lengthQuestions: number;
   index = 0;
@@ -43,8 +44,10 @@ export class QuestionComponent implements OnInit {
   flagButton: true;
   state = true;
 
+  // -----------------------------------------------------
   constructor() { }
 
+  // -----------------------------------------------------
   ngOnInit() {
     this.currentQuestion = this.dataQuestions[this.index];
     this.lengthQuestions = this.dataQuestions.length;
@@ -52,14 +55,17 @@ export class QuestionComponent implements OnInit {
     this.toggle();
   }
 
+  // -----------------------------------------------------
   toggle() {
     this.state = !this.state;
   }
 
+  // -----------------------------------------------------
   countStep() {
     this.step = 100 / this.lengthQuestions * (this.index + 1);
   }
 
+  // -----------------------------------------------------
   next() {
     this.toggle();
     this.index++;
@@ -71,5 +77,5 @@ export class QuestionComponent implements OnInit {
       }
     }
   }
-
+  // -----------------------------------------------------
 }

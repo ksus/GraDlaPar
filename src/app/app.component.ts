@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { QuestionsService } from './questions.service';
-import { Question } from './question';
+import { QuestionsService } from './services/questions.service';
+import { Question } from './models/question';
 
 
 @Component({
@@ -10,18 +10,22 @@ import { Question } from './question';
 })
 export class AppComponent {
 
-  constructor(private questions: QuestionsService) {
+  constructor(
+    private questions: QuestionsService) {
   }
 
+  // variables
   questRandom: Question[];
-  gameChoise = 0;
-  step = 1;
+  gameChoise: number = 0;
+  step: number = 1;
 
+  // -----------------------------------------------------
   start() {
     this.step = 2;
     this.questRandom = this.questions.getData(this.gameChoise);
   }
 
+  // -----------------------------------------------------
   end() {
     this.step = 1;
     this.gameChoise = 0;
